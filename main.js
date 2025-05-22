@@ -56,6 +56,30 @@ cone.rotation.z = Math.PI / 1; // rotaciona o cone 180 graus no eixo z
 cone.scale.set(1, 2, 1); ;// aumenta o tamanho do cone verticalmente (eixo y)
 scene.add(cone); // adiciona o cone a cena
 
+// adiciona uma combinacao de objetos para criar uma casa
+
+const house = new THREE.Mesh(
+    new THREE.BoxGeometry(5, 5, 5),
+    new THREE.MeshBasicMaterial({ color: 'brown' })
+)
+house.position.set(10, 2.5, -15);
+scene.add(house);
+
+const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(5, 5, 4),
+    new THREE.MeshBasicMaterial({ color: 'blue' })
+)
+roof.position.set(10, 7, -15);
+roof.rotation.y = Math.PI / 4
+scene.add(roof);
+
+const door = new THREE.Mesh(
+    new THREE.BoxGeometry(2, 4, 2),
+    new THREE.MeshBasicMaterial({ color: 'yellow' })
+)
+door.position.set(12, 2, -15);
+scene.add(door);
+
 // controle de orbita
 const controls = new OrbitControls(camera, renderer.domElement);
 
